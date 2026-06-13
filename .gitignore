@@ -1,0 +1,20 @@
+# 编译产物
+bookbridge/vision_ocr
+*.o
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# 工作产物（页图、OCR、草稿、成品）——按需保留，默认不入库
+pages/
+_bb_images/
+*.epub
+draft.md
+work/
+
+# 系统
+.DS_Store

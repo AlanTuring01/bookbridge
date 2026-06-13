@@ -1,0 +1,71 @@
+# bookbridge 书籍配置示例
+#
+# 描述一本书的元数据 + 阅读顺序 + 目录结构。`build` 子命令据此把逐页
+# Markdown 组装成 EPUB。页码用源 PDF 的页序（从 1 起）。
+#
+# 小技巧：源 PDF 若自带书签目录，先用
+#   python3 -c "from bookbridge import render; print(render.get_toc('input.pdf'))"
+# 把目录拉出来，照着填 structure，省事不少。
+
+source_pdf: input.pdf
+cover_page: 1            # 用第几页渲染成封面图（留空则不放封面）
+
+metadata:
+  title: 书名——副标题
+  authors:
+    - 作者甲
+    - 作者乙
+  publisher: 某某出版社
+  language: zh-CN        # 简体 zh-CN / 繁体 zh-TW、zh-HK
+  description: 一句话简介。
+  modified: "2026-01-01T00:00:00Z"
+
+# 阅读顺序。每个条目是一段连续页面：
+#   id      唯一标识（也是 EPUB 内文件名）
+#   title   章节标题（不进目录的可省）
+#   pages   [起页, 止页]
+#   toc     进目录时显示的文字（省略 / 留空则不进目录）
+#   level   目录层级：1 = 部 / 篇，2 = 章；0 或省略 = 不进目录
+#   backmatter_figure_first  可选；封底等「图在前、文字在后」的页设 true
+structure:
+  - id: titlepage
+    pages: [3, 3]
+
+  - id: copyright
+    pages: [4, 4]
+
+  - id: preface
+    title: 序
+    pages: [5, 9]
+    toc: 序
+    level: 1
+
+  - id: part1
+    title: 第一部 总论
+    pages: [19, 20]
+    toc: 第一部 总论
+    level: 1
+
+  - id: ch01
+    title: 第一章 开端
+    pages: [21, 38]
+    toc: 第一章 开端
+    level: 2
+
+  - id: ch02
+    title: 第二章 展开
+    pages: [39, 62]
+    toc: 第二章 展开
+    level: 2
+
+  - id: postscript
+    title: 跋
+    pages: [248, 249]
+    toc: 跋
+    level: 1
+
+  - id: backcover
+    pages: [250, 250]
+    toc: 封底
+    level: 1
+    backmatter_figure_first: true
