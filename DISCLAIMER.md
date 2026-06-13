@@ -2,7 +2,7 @@
 
 ## 中文
 
-**1. 工具中立。** bookbridge（书桥）是一个 PDF 转 ePub 的格式转换与排版工具。它本身
+**1. 工具中立。** BookBridge（书桥）是一个 PDF 转 ePub 的格式转换与排版工具。它本身
 **不包含、不附带、也不分发任何受版权保护的作品内容**。仓库里没有任何书籍的正文、扫描页
 或译文，只有处理流程的代码。
 
@@ -25,7 +25,7 @@
 
 ## English
 
-**1. The tool is neutral.** bookbridge is a PDF-to-ePub conversion and typesetting tool. It
+**1. The tool is neutral.** BookBridge is a PDF-to-ePub conversion and typesetting tool. It
 **does not contain, bundle, or distribute any copyrighted work**. This repository holds only
 the processing code — no book text, scans, or translations.
 
